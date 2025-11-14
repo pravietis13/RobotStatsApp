@@ -19,8 +19,8 @@ namespace RobotStats.API.Migrations
                     RobotName = table.Column<string>(type: "text", nullable: false),
                     StartTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     EndTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    Status = table.Column<int>(type: "integer", nullable: false),
-                    SavedTimeMinutes = table.Column<int>(type: "integer", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: false),
+                    SavedTime = table.Column<TimeSpan>(type: "interval", nullable: false),
                     ErrorMessage = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>

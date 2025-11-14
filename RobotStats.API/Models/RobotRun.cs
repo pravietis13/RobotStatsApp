@@ -7,7 +7,7 @@
         public DateTime StartTime { get; set; } = DateTime.UtcNow;
         public DateTime? EndTime { get; set; }
         public RunStatus Status { get; set; }
-        public int SavedTimeMinutes { get; set; }
+        public TimeSpan SavedTime { get; set; }
         public string? ErrorMessage { get; set; }
     }
 

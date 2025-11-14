@@ -37,8 +37,8 @@ namespace RobotStats.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("SavedTimeMinutes")
-                        .HasColumnType("integer");
+                    b.Property<TimeSpan>("SavedTime")
+                        .HasColumnType("interval");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("timestamp with time zone");

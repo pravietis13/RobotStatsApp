@@ -35,8 +35,7 @@ public class RobotController : ControllerBase
         run.Status = RunStatus.Success;
 
         // Рассчитываем сэкономленное время
-        var duration = run.EndTime.Value - run.StartTime;
-        run.SavedTimeMinutes = (int)duration.TotalMinutes;
+        run.SavedTime = (run.EndTime.Value - run.StartTime);
 
         await _db.SaveChangesAsync();
         return Ok();
@@ -52,7 +51,7 @@ public class RobotController : ControllerBase
         run.Status = RunStatus.Failed;
         run.ErrorMessage = errorMessage;
 
-        run.SavedTimeMinutes = 0;
+        run.SavedTime = new TimeSpan(0);
 
         await _db.SaveChangesAsync();
         return Ok();
@@ -69,7 +68,7 @@ public class RobotController : ControllerBase
             Successful = runs.Count(r => r.Status == RunStatus.Success),
             Failed = runs.Count(r => r.Status == RunStatus.Failed),
             Running = runs.Count(r => r.Status == RunStatus.Running),
-            TotalSavedTime = runs.Sum(r => r.SavedTimeMinutes),
+            TotalSavedTime = new TimeSpan(runs.Sum( r => r.SavedTime.Ticks))
         };
 
         return Ok(stats);

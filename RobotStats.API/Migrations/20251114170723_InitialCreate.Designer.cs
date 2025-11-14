@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace RobotStats.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251113210106_InitialCreate")]
+    [Migration("20251114170723_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -40,14 +40,15 @@ namespace RobotStats.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("SavedTimeMinutes")
-                        .HasColumnType("integer");
+                    b.Property<TimeSpan>("SavedTime")
+                        .HasColumnType("interval");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("integer");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
