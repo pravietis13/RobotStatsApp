@@ -13,7 +13,7 @@
 
     public enum RunStatus
     {
-        InProgress = 1,
+        Running = 1,
         Success = 2,
         Failed = 3
     }
