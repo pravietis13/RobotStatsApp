@@ -1,0 +1,39 @@
+.metric-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    border-left: 4px solid #007bff;
+    transition: transform 0.2s ease;
+}
+
+.metric-card.success {
+    border-left-color: #28a745;
+}
+
+.metric-card.error {
+    border-left-color: #dc3545;
+}
+
+.metric-card.running {
+    border-left-color: #ffc107;
+}
+
+.metric-card.time {
+    border-left-color: #17a2b8;
+}
+
+.metric-title {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
